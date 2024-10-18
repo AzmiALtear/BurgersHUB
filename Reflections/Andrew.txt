@@ -1,18 +1,25 @@
 OrderBurger Ind.
 
-Vecka 1:
 Idag påbörjades grupparbetet med att bestämma grupp, därefter kunde planeringen påbörjas där gruppen bestämde att en webbsida skulle krävas för att kunna se alla pushes & comits.
 Gruppen fastställde även att Visual Studio Code var utvecklingsmiljön som skulle jobbas i då det blir enklare för alla i och med att olika program har olika syntax och det skulle göra det svårare på grund av att olika miljöutvecklingssystem gör så att man ibland kan få errors.
 Vi gjorde även en github server där vi alla kunde pusha & comitta, detta är viktigt eftersom att alla ska kunna se korrigeringar på både webbsidan och i vår BurgerOrder kod.
 
-Vecka 2: 
 Idag påbörjades arbetet med hemsidan där vi använder oss av html & css, därefter skapades en branch som är viktig för att utveckla funktioner, debugga och säkert komma på fler ideer och testa.
 Det skapades en enklare version av hemsidan så att alla skulle kunna testa sin kod och se så att hemsidan fungerande. Webbsidan skapades i Visual Studio Code med hjälp av html, css och javascript.
 Vi bestämde även att alla skulle jobba separat, men ha regelbunden kontakt med varandra. På så sätt vet vi alla hur långt vi har kommit och vad som behöver fixas. 
 Webbsidan var inte responsiv så det som gjordes var att gruppmedlemmarna bytte ut pixlar i css mot % och webbsidan blev responsiv då alla skärmar har olika tum.
 
-Vecka 3:
-Idag påbörjades arbetet med koden för OrderBurger, det första som gjordes var att skapa en meny så man ser allting i en box så att den inte är över hela webbsidan. 
-Därefter så kunde debugging påbörjas 
+Idag påbörjades arbetet med koden för OrderBurger, det första som gjordes var att skapa en meny så man ser allting i en box så att den inte är över hela webbsidan. Vi började med den specifika koden för OrderBurger-funktionen. En meny skapades som samlar allt i en box, vilket förhindrar att innehållet sprids över hela sidan. Debugging påbörjades även för att fixa eventuella fel och optimera koden.
+
+Arbetet med backend påbörjades. Gruppen valde att använda Node.js för servern och Express.js som ramverk för att skapa API
+och hantera HTTP. En testmiljö i node.js sattes upp för att kunna köra back-end-koden och API-anropen utan att påverka koden. 
+
+Fokus låg på att integrera frontend och backend. API:n som byggdes i backend integrerades med webbsidan för att hämta och skicka data till databasen, exempelvis beställningar. Formulär för att lägga beställningar implementerades på webbsidan. När en kund väljer sin meny, så skickas denna data via ett POST-anrop till servern, där beställningen sparas i databasen.
+Testning och debugging fortsatte, med fokus på att genomföra att frontend och backend kommunicerade korrekt.
+
+Responsiv design polerades ytterligare och vi testade webbplatsen på olika enheter som mobiler, surfplattor och desktops. Slutligen höll gruppen en gemensam testning där alla medlemmar körde genom olika funktioner för att identifiera buggar och optimera prestanda. Målet var att ha en fullt fungerande version redo för presentation i slutet av nästa vecka.
+
+
+
 
 
