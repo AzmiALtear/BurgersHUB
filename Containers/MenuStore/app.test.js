@@ -2,6 +2,7 @@ const mysql = require('mysql');
 jest.mock('mysql'); 
 
 describe('MySQL Database Connection', () => {
+
   let consoleLogSpy, consoleErrorSpy;
 
   beforeEach(() => {
@@ -20,11 +21,13 @@ describe('MySQL Database Connection', () => {
     const mockCreateConnection = {
       connect: mockConnect,
     };
+
     mysql.createConnection.mockReturnValue(mockCreateConnection);
 
     const db = require('./config/db'); 
-    expect(mockConnect).toHaveBeenCalled();
-    expect(consoleLogSpy).toHaveBeenCalledWith('Connected to the MySQL database'); // Check if the success message was logged
+
+    expect(mockConnect).toHaveBeenCalled(); 
+    expect(consoleLogSpy).toHaveBeenCalledWith('Connected to the MySQL database'); 
   });
 
   it('should handle MySQL connection error', () => {
@@ -36,8 +39,9 @@ describe('MySQL Database Connection', () => {
 
     mysql.createConnection.mockReturnValue(mockCreateConnection);
 
-    
+   
     const db = require('./config/db'); 
+
     expect(mockConnect).toHaveBeenCalled(); 
     expect(consoleErrorSpy).toHaveBeenCalledWith('Error connecting to MySQL database:', mockError); // Check if the error message was logged
   });
