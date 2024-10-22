@@ -1,0 +1,25 @@
+{
+  "name": "menustore",
+  "version": "1.0.0",
+  "description": "Database service for storing menu items",
+  "main": "db.js",
+  "scripts": {
+    "start": "node config/db.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  },
+  "scripts": {
+  "test": "jest"
+}
+
+}
