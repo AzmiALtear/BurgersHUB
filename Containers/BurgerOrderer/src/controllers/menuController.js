@@ -1,9 +1,8 @@
 const db = require('../../../MenuStore/config/db');
 
 exports.getMenuItems = (req, res) => {
-  // Separate tables with and without description columns
   const tablesWithDescription = ['burgers', 'chicken_menu', 'desserts_menu', 'fish_menu', 'kids_menu', 'salads_menu', 'sides'];
-  const tablesWithoutDescription = ['drinks'];  // Tables like drinks that don't have description
+  const tablesWithoutDescription = ['drinks']; 
 
   let allMenuHTML = '<h1>Full Menu</h1>';
   let processedTables = 0;
@@ -11,12 +10,11 @@ exports.getMenuItems = (req, res) => {
   const allTables = [...tablesWithDescription, ...tablesWithoutDescription];
 
   allTables.forEach(table => {
-    // Choose the query based on whether the table has a description or not
     let sql;
     if (tablesWithDescription.includes(table)) {
       sql = `SELECT name, price, description FROM ${table}`;
     } else {
-      sql = `SELECT name, price FROM ${table}`;  // No description for these tables
+      sql = `SELECT name, price FROM ${table}`;
     }
 
     db.query(sql, (err, result) => {
@@ -24,7 +22,7 @@ exports.getMenuItems = (req, res) => {
         return res.status(500).send(`Error fetching items from ${table}`);
       }
 
-      // Add the table heading to the HTML
+      
       allMenuHTML += `<h2>${formatTableName(table)}</h2><ul>`;
 
       result.forEach(item => {
@@ -47,7 +45,7 @@ exports.getMenuItems = (req, res) => {
   });
 };
 
-// Helper function to make table names look nicer
+// Helper function 
 function formatTableName(tableName) {
   return tableName.replace('_', ' ').replace(/\b\w/g, char => char.toUpperCase());
 }

@@ -10,7 +10,6 @@ const menuRoutes = require('./src/routes/menu');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Koppla ihop rutter
 app.use('/', indexRoutes);  
 app.use('/menu', menuRoutes); 
 app.use('/', orderRoutes);  

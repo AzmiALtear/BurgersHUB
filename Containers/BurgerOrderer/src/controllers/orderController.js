@@ -3,29 +3,21 @@ let currentOrder = [];
 
 exports.submitOrder = async (req, res) => {
   const order = req.body;
-
-  // Log the incoming order to check if it contains data
   console.log('Order received from form:', order); 
-
-  // Kontrollera att ordern innehåller nödvändiga fält
   if (!order || !order.items || !order.customerName) {
     console.log('Invalid order data');
     return res.status(400).send('Invalid order data');
   }
 
-  // Filtrera ut objekt som saknar namn (dvs. som inte är valda)
   currentOrder = order.items
-    .filter(item => item.name && item.name !== '')  // Endast objekt med namn inkluderas
+    .filter(item => item.name && item.name !== '')  
     .map(item => ({
       name: item.name,
       quantity: item.quantity,
-      customizations: item.customizations || {}  // Lägg till anpassningar om de finns
+      customizations: item.customizations || {} 
     }));
 
-  // Logga currentOrder för att verifiera filtreringen
   console.log('Filtered order:', currentOrder);
-
-  // Skicka den filtrerade beställningen till KitchenView
   try {
     const response = await axios.post('http://localhost:4000/order', { 
       customerName: order.customerName, 
