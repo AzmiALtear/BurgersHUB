@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug KitchenView",
+        "type": "node",
+        "request": "attach",
+        "port": 9230,
+        "address": "localhost",
+        "localRoot": "${workspaceFolder}/Containers/KitchenView",
+        "remoteRoot": "/src/app",
+        "restart": true
+      }
+    ]
+  }
+  
