@@ -2,6 +2,11 @@
 
 Inlämningsuppgift 1: Samarbete och Konfigurationshantering
 
+1.Team Members:
+
+Andrew Davidsson
+Azme altear
+
 The code that was regularly used included git status and git diff, both to check the status of the working directory and to see if team members had made changes to the script. At the start of the project, we used git init to initialize the project and create a GitHub repository. We also used git log to check the Git history of our project, and git rm <> to remove files. This was useful when testing our code—if a file didn’t contain relevant information or features, team members would use git rm on it or save it for later in case it still contained necessary code. I needed to use git mv, which renames a file, because I originally named my script “OrderBurger” when it should have been “OrderBurgerMain.” When team members created branches, the git branch command was used, and git checkout was frequently used to check the status of branches and specific commits.
 
 The biggest challenge was integrating our code because the code for BurgerOrder was in Node.js, while the code for the website was in HTML and CSS. These languages can work well together, as you can use <style> and implement JavaScript code, but this was an initial concern until we found a solution. We also had some issues with the website because we couldn’t initially decide whether to keep the HTML and CSS in the same file or in two different ones. We ultimately chose two separate files to make the code more structured.
