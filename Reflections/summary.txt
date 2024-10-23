@@ -1,3 +1,7 @@
+
+
+Inlämningsuppgift 1: Samarbete och Konfigurationshantering
+
 The code that was regularly used included git status and git diff, both to check the status of the working directory and to see if team members had made changes to the script. At the start of the project, we used git init to initialize the project and create a GitHub repository. We also used git log to check the Git history of our project, and git rm <> to remove files. This was useful when testing our code—if a file didn’t contain relevant information or features, team members would use git rm on it or save it for later in case it still contained necessary code. I needed to use git mv, which renames a file, because I originally named my script “OrderBurger” when it should have been “OrderBurgerMain.” When team members created branches, the git branch command was used, and git checkout was frequently used to check the status of branches and specific commits.
 
 The biggest challenge was integrating our code because the code for BurgerOrder was in Node.js, while the code for the website was in HTML and CSS. These languages can work well together, as you can use <style> and implement JavaScript code, but this was an initial concern until we found a solution. We also had some issues with the website because we couldn’t initially decide whether to keep the HTML and CSS in the same file or in two different ones. We ultimately chose two separate files to make the code more structured.
@@ -13,3 +17,127 @@ a real-time list of current orders waiting to be prepared, with details on what 
 API endpoints handle HTTP requests, such as fetching the menu from the database, submitting orders, and updating the session. A module that retrieves and returns menu data from the MenuStore database, including information about items, prices, and availability. When an order is submitted, it is sent to the kitchen system via a module that handles communication with KitchenView, ensuring it is displayed in the kitchen for preparation.
 
 Web Interface and API Endpoints should be completed within 2 weeks. This includes basic page layout and API communication with the backend. MenuStore and Database Structure should be completed within 1 week. The database should be operational and able to handle test data. KitchenView should be completed within 3 weeks. A functional interface where the kitchen can receive and manage orders. BurgerOrderer should be completed within 2–3 weeks. This ensures that customer orders are handled correctly. Testing and Integration should be ongoing continuously, but an initial round of testing and integration should be completed within 4 week
+
+
+
+
+
+Inlämningsuppgift 2: Implementation och Dokumentation
+Summarize and Reflect
+
+1. Names of all team members.
+
+Andrew Davidsson
+Azme altear
+
+2. Link to the project page on the Git server.
+
+3. Short summary of what you implemented (5–10 sentences):
+In this task, we developed three separate components that run in their own containers:
+BurgerOrderer: The customer interface for placing orders.
+MenuStore: The database to manage menu data.
+KitchenView: The kitchen view where orders are displayed for the kitchen.
+   
+The project is based on a containerized platform with an API to send and receive orders.
+
+BurgerOrderer:
+Implements a web interface where customers can view the menu and send orders via a REST API. Session management ensures that multiple customers can order without their orders getting mixed up. The frontend design includes a menu view and an order form, styled with CSS . All JavaScript functions are collected in one file to make the code easier to read and maintain. These functions allow customers to customize their orders dynamically.
+GET /menu: Fetches the menu from MenuStore and displays it for the user.
+POST /order: Sends the customer’s order to KitchenView.
+GET /order-form: Displays the form for each order.
+
+Menu Store:
+Uses a MySQL database to store menu data. We created SQL scripts to build and populate the database with menu options and prices. All SQL files are in the SQL module, which creates tables and adds data to them. In config/db, we established the connection to the database.
+
+Kitchen View:
+Displays a welcome message to the kitchen and all incoming orders in separate tables.
+POST /order: Receives all orders from BurgerOrderer.
+GET /orders: Displays all incoming orders.
+
+Each container also includes:
+node_modules: A directory that stores all the external libraries and dependencies the project needs, as defined in the package.json file.
+Dockerfile: The configuration file for Docker. It defines the steps needed to build a Docker image of the application, such as installing dependencies, copying the source code, and setting the command to run the app.
+package-lock.json: This file ensures that the project uses the exact versions of dependencies listed. It is automatically generated when we run npm install and helps guarantee consistency across different environments.
+package.json: This file is the heart of the Node.js application. It contains metadata about the project (name, version, etc.) and lists the dependencies the app needs. It also defines scripts, like npm star and other settings.
+   
+Commands we used:
+npm init -y: Creates a default package.json file.
+npm install: Installs all dependencies listed in package.json.
+npm start: Starts the application based on the scripts in package.json.
+
+4. Your experiences with how the project went:
+
+ What went well?
+ The implementation of the API between BurgerOrderer and KitchenView was a bit tricky at first, but it eventually worked without problems. We also made it possible for multiple users to place orders simultaneously without issues. Docker was a new tool for us, but we successfully ran each component in its own container using the commands docker-compose up --build and docker build -t container_name.
+
+How did you solve the difficulties? Could you have done something differently?
+Through discussions and searching both course materials and the internet to gain the necessary knowledge to complete the work.
+
+What didn’t you manage to solve? Why not?
+We had a problem where, when a user ordered just one product, the entire menu was still being sent to KitchenView, which didn’t look good in the view. We used filter functions to ensure that only selected products were sent in the order, which solved the issue of empty entries in KitchenView.
+
+5. Your experiences with working with containers:
+It was a valuable experience working with Docker to create separate containers for each component. This made it easy to develop and test each part of the system in isolation.
+
+How did you solve the difficulties? Could you have done something differently?
+Through discussions and searching both course materials and the internet, such as YouTube and AI, to acquire the knowledge needed to complete the work.
+
+What didn’t you manage to solve? Why not?
+It took time to get everything running smoothly, but in the end, we were able to solve all the problems we encountered with the Docker containers and API communication between our ordering systems.
+
+
+Inlämningsuppgift 3: Testning och Debugning
+
+
+1.Team Members:
+
+Andrew Davidsson
+Azme altear
+ 
+2. Project GitHub Link:
+
+3. Summary of Tested Functions:
+
+We tested the key aspects of the system in each container, including:
+BurgerOrderer: Testing order submission and ensuring correct response from the API.
+KitchenView: Testing the display and processing of received orders from BurgerOrderer.
+MenuStore: Testing the database connection, handling errors, and retrieving menu options.
+
+4. How Tests Were Conducted:
+
+We used the Jest framework to write automated unit tests for functions.
+The tests were run in individual files for each container: BurgerOrderer, KitchenView, and MenuStore.
+Endpoints were tested using Supertest, simulating API calls to place orders, retrieve menu options, and display orders in the kitchen.
+Testing the MySQL connection.
+
+5. Test Results:
+
+Total number of written tests: 9
+ What they test:
+  
+1.Burger Orderer:
+Tests placing a new order
+Tests retrieving menu options from the database.
+2.Menu Store:
+Tests MySQL connection.
+Tests MySQL connection failure.  
+3.Kitchen View:
+ Tests displaying the homepage in KitchenView.
+Test for sending a new order.
+Test for sending an invalid order.
+Tests displaying all received orders.
+Test displaying no orders received. 
+  
+Results:
+7 tests passed in total.
+1 test in BurgerOrderer for placing a new order failed because the app.js file in KitchenView was not running. However, when the file was run using "node app.js," the test worked.
+1 test failed in MenuStore, which was supposed to handle MySQL connection errors. We implemented the logic in our code to handle connection errors, but it only provides an error message saying "Error connecting to MySQL database" if the error occurs.
+
+6. Experiences with Automated Unit Testing:
+
+What went well:
+The tests for the main functions in BurgerOrderer and KitchenView worked as expected.
+Using Supertest made it easy to test API responses.
+
+What didn’t go so well:
+The test related to handling MySQL connection errors in MenuStore was challenging, as error handling was not fully captured in our code. We tried to fix it but decided that it would take more time, which we could use for other more important requirements in the assignment.
