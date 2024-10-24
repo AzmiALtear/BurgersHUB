@@ -1,8 +1,8 @@
 const request = require('supertest');
-const app = require('./app'); // Import your Express app
-const db = require('../MenuStore/config/db'); // Import your MySQL connection
+const app = require('./app'); 
+const db = require('../MenuStore/config/db'); 
 
-// Close the MySQL connection after all tests have completed
+
 afterAll(() => {
   db.end((err) => {
     if (err) {
