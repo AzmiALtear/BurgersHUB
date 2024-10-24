@@ -1,11 +1,10 @@
 
 
-Inlämningsuppgift 1: Samarbete och Konfigurationshantering
 
-1.Team Members:
 
+Team Members:
 Andrew Davidsson
-Azme altear
+Azme Altear
 
 The code that was regularly used included git status and git diff, both to check the status of the working directory and to see if team members had made changes to the script. At the start of the project, we used git init to initialize the project and create a GitHub repository. We also used git log to check the Git history of our project, and git rm <> to remove files. This was useful when testing our code—if a file didn’t contain relevant information or features, team members would use git rm on it or save it for later in case it still contained necessary code. I needed to use git mv, which renames a file, because I originally named my script “OrderBurger” when it should have been “OrderBurgerMain.” When team members created branches, the git branch command was used, and git checkout was frequently used to check the status of branches and specific commits.
 
@@ -24,7 +23,42 @@ API endpoints handle HTTP requests, such as fetching the menu from the database,
 Web Interface and API Endpoints should be completed within 2 weeks. This includes basic page layout and API communication with the backend. MenuStore and Database Structure should be completed within 1 week. The database should be operational and able to handle test data. KitchenView should be completed within 3 weeks. A functional interface where the kitchen can receive and manage orders. BurgerOrderer should be completed within 2–3 weeks. This ensures that customer orders are handled correctly. Testing and Integration should be ongoing continuously, but an initial round of testing and integration should be completed within 4 week
 
 
+Inlämningsuppgift 1: Samarbete och Konfigurationshantering
 
+1. Namn på alla i teamet.
+Andrew Davidsson
+Azme altear
+
+2. Länk till projektets sida på git-servern.
+https://github.com/AzmiALtear/BurgersHUB/tree/main/Planning
+
+3. Kort sammanfattning om vad konfigurationshantering är och varför det används.
+Vi arbetar med att utveckla Burger Order systemet, som består av två klienter: en för kunder för att beställa hamburgare och en för köket personal för att se inkommande beställningar. Vi använder Git som versionshanteringssystem och har delat upp arbetet i flera delar, inklusive implementering, dokumentation, testning och debugging.
+
+4. Kort sammanfattning om det vanligaste arbetsflödet med git, inklusive de
+Vi skapade först ett repository på GitHub och klonade det lokalt för att påbörja arbetet. Repositionen heter BurgersHUB. Vi strukturerade projektet och lade till de första menyerna (Burgers.txt, Chicken.txt, etc.) i Planning mappen. Vi använde också commits för att spara alla ändringar. Varje teammedlem skapade sin egen fil i mappen Reflections för att dokumentera sina erfarenheter och lärdomar under projektet.
+
+Kommandon vi använde:
+Git clone  repository-url för att klona det från GitHub.
+Git init  
+mkdir foldername – för att skapa projektmappar.
+echo. -> filename – för att skapa tomma filer för menyer, såsom Burgers.tx.
+git config user.name säkerställer viken konto man använder 
+git config user.email säkerställer viken konto man använder 
+Git status för att ser vilken fill ändrades
+Git add . file namn för att lägga till alla nya filer i Git.
+git commit -m för att committa ändringar med beskrivande meddelanden.
+git push origin maste för att pusha filerna till github.
+
+5. Era erfarenheter om att arbeta med konfigurationshantering.
+Vad gick bra?
+Vi lärde oss hur man effektivt organiserar ett projekt i olika mappar och ser till att commits görs regelbundet för att spåra alla ändringar.
+Genom att arbeta med GitHub för konfigurationshantering fick vi erfarenhet av versionskontroll, samarbete och konfliktlösning
+Hur löste ni svårigheterna? Hade ni kunnat göra annorlunda?
+En medlem i temat har två olika konto på github, vi märkte att ett av kontona vi använde för att committa var felaktigt, vilket ledde till att commits gjordes från ett annat GitHub-konto än vad vi ville. Vi ändrade de lokala Git-användarinställningarna för projektet genom att köra kommandon: git config user.name och git config user.email
+
+Vad lyckades ni inte lösa? Varför inte?
+Vi hade inte stora bekymmer i den här uppgiften som inte går att lösa.
 
 
 Inlämningsuppgift 2: Implementation och Dokumentation
@@ -93,9 +127,7 @@ It took time to get everything running smoothly, but in the end, we were able to
 
 Inlämningsuppgift 3: Testning och Debugning
 
-
 1.Team Members:
-
 Andrew Davidsson
 Azme altear
  
