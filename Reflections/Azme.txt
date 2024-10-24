@@ -1,1 +1,109 @@
- 
+Engineering Journals
+NOTE I have taken notes in a Google document for my engineering journal before pushing it, which is why there aren't regular updates on Git.
+
+Collaboration
+We had a very good collaboration in the team since there were only two of us, which made planning easier and minimized misunderstandings. We had good communication via Discord, where we updated each other on what we had done and solved problems together.  
+We tried to divide the task into smaller parts, then decided how to work on each part individually.
+
+Configuration Management
+Version control: We used GitHub to track changes using the commit command.
+Repository: Created a new repository, set up Git configurations, and used branches for each container (e.g., BurgerOrderer, KitchenView, and MenuStore). 
+Merging and managing conflicts: We didn't have many conflicts because we avoided them by creating several branches and making sure everything worked locally before pushing to Git. 
+Docker configuration: Docker Desktop was installed and used, including:
+Dockerfile for setting up the environment (node:14, WORKDIR, etc.). 
+Containerization: Docker was chosen because it ensures the application runs consistently in all environments.
+
+Implementation and Documentation
+
+JavaScript was chosen for implementation. The project folder contains the container folder, which has three directories: BurgerOrderer, KitchenView, and MenuStore, which is dedicated to database connection and management. These directories have Dockerfiles and package.json files that show all the details of dependencies.  
+Key components are:  
+Express.js routes used for paths like /menu for menu display and /order for order submission.  
+Controllers like the getMenuItem function that fetch items from several tables in the database.  
+KitchenView, which is used for orders sent from BurgersHUB to KitchenView.
+
+
+
+Testing and Debugging
+
+Unit tests for all three components—BurgerOrderer, KitchenView, and Store—are written using Jest and Supertest.  
+npm test was used to run the test cases, with most of the tests passing.
+
+
+
+
+
+
+
+Technical Documentation
+
+Installation:  
+Dependencies are Express, Axios, and Jest. For installation and execution, the following commands are commonly used:  
+npm install  
+npm init -y  
+node app.js  
+npm test  
+docker build -t burgerorderer  
+docker-compose up  
+
+Usage:
+A user can interact with the system by placing an order, starting at the homepage, navigating to the menu, submitting an order, and KitchenView and the database will be updated.
+
+Key learnings: The importance of logging for debugging, using Docker to manage development environments, and investigating client-server communication. There's always room to improve, such as adding more customization options or enhancing the user interface for a better experience.
+
+Debugging session
+
+1.Which breakpoints did you set to start the debugging session? Where do you find the file to set them in?
+
+I set breakpoints in parts of the code that handle important functions like order management and database connections. Specifically, I set breakpoints in the following files:
+
+menuController.js: I set a breakpoint at the submitOrder function, which handles when an order is sent to the kitchen.  
+db.js: I set a breakpoint at the line that manages the database connection to verify that the connection to the database was working correctly.
+
+2.What did you do next? How did you use the Continue, Step over, Step into, and Step out buttons?
+
+After setting breakpoints, I started the debugging session and used the following steps:
+
+Step into: I used Step into to enter the submitOrder function and inspect how it handled the incoming order.  
+Step over: I used Step over to skip simpler calls, like sending the order to the kitchen and logging information.  
+Step out: After stepping into a few functions, I used Step out to return to the parent function when inspecting underlying functions.  
+Continue: When I wanted to run through the entire flow without stopping, I used Continue to let the application run to the next breakpoint.
+
+3. Watch a variable. How did you do it? What value did it have? Can you detect when the value of the variable changes? How?
+
+I watched the `order` variable inside the submitOrder function. I did this by adding the variable to the Watch panel in the VS Code debugger.  
+
+Value: When an order was submitted by the customer, the order contained the following data:  json
+{
+  "customerName": "John Doe",
+  "items": [
+    { "name": "Cheeseburger", "quantity": 1, "customizations": { "cheese": "extra" } }
+  ]
+}
+
+Watching for changes: I could see how the variable changed when different orders were placed. When I added a new order, the value of `order` changed, and I observed the change in real-time by running multiple orders during the debugging session.
+
+4.Try different paths through the functionality, such as ordering something else, canceling halfway through, etc. How does this affect which code is executed? How did this affect your watched variables?
+
+I tried different scenarios to see how the application reacted:
+
+Ordering different items: When I changed the content of the order (e.g, a chicken burger instead of a meat burger), I saw that the order variable updated correctly, and the application sent the right data to the kitchen.  
+Canceling the order halfway: When I canceled an order mid-process, I noticed that the application sent an empty or incomplete order to the kitchen. This showed that there was a lack of validation to handle incomplete orders correctly, which we could improve by adding extra validation logic.  
+Empty order: When I tried to submit an empty order, I saw that the application sent an error message back, which was correct handling.
+
+Summary and Reflection:
+
+What went well?
+The debugging session helped identify where order information was mishandled, and I could monitor the flow when different types of orders were created. Breakpoints and variable watching worked well for tracking data flow through the application.
+
+What went less well? 
+One issue was that the application sometimes sent incomplete orders to the kitchen when a user canceled the process. This showed we needed more validation before an order was submitted.
+
+What was easy?
+It was relatively easy to set breakpoints and use the debugger's functions in VS Code. Seeing variable values in real time made it easy to understand how data moved through the system.
+
+What was difficult?
+Handling all potential error scenarios was challenging, especially validating orders and handling empty or incomplete orders. Debugging database connections was also a bit tricky.  
+I created docker-compose.debug.yml to be able to build and run all containers in debug mode but got the error "Cannot find module ../../../MenuStore/config/db.js" when I ran this command “docker-compose -f docker-compose.yml -f docker-compose.debug.yml up,” despite my path being correct! I resolved it by running the code in debug mode manually, using the command “npm run start:debug” in each container before continuing the debugging in VS Code.
+
+Can debugging become a useful tool for you?
+Absolutely. Debugging gives me insight into how the application actually works, and it helps to understand complex data layers and flows. Being able to follow variables and step through the code makes it much easier to troubleshoot and improve the application.
