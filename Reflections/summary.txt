@@ -146,3 +146,5 @@ Using Supertest made it easy to test API responses.
 
 What didn’t go so well:
 The test related to handling MySQL connection errors in MenuStore was challenging, as error handling was not fully captured in our code. We tried to fix it but decided that it would take more time, which we could use for other more important requirements in the assignment.
+What we were unable to solve:
+The handling of the connection error in MenuStore. Despite multiple attempts.
