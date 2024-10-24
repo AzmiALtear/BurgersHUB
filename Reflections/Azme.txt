@@ -29,11 +29,6 @@ Unit tests for all three components—BurgerOrderer, KitchenView, and Store—ar
 npm test was used to run the test cases, with most of the tests passing.
 
 
-
-
-
-
-
 Technical Documentation
 
 Installation:  
