@@ -17,7 +17,7 @@ och hantera HTTP. En testmiljö i node.js sattes upp för att kunna köra back-e
 Fokus låg på att integrera frontend och backend. API:n som byggdes i backend integrerades med webbsidan för att hämta och skicka data till databasen, exempelvis beställningar. Formulär för att lägga beställningar implementerades på webbsidan. När en kund väljer sin meny, så skickas denna data via ett POST-anrop till servern, där beställningen sparas i databasen.
 Testning och debugging fortsatte, med fokus på att genomföra att frontend och backend kommunicerade korrekt.
 
-Responsiv design polerades ytterligare och vi testade webbplatsen på olika enheter som mobiler, surfplattor och desktops. Slutligen höll gruppen en gemensam testning där alla medlemmar körde genom olika funktioner för att identifiera buggar och optimera prestanda. Målet var att ha en fullt fungerande version redo för presentation i slutet av nästa vecka.
+Responsiv design polerades ytterligare och vi testade webbplatsen på olika enheter som mobiler, surfplattor och desktops. Slutligen höll gruppen en gemensam testning där alla medlemmar körde genom olika funktioner för att identifiera buggar och optimera prestanda. Målet var att ha en fullt fungerande version redo för presentation i slutet av deadline.
 
 
 
