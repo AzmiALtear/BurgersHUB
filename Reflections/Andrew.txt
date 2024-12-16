@@ -27,7 +27,15 @@ Vi fick gå in i SubmitOrder för att säkerställa och validera att orderhanter
 
 För att säkerställa att allt var korrekt så gjorde vi några tester, första testet var att vi kollade så att order ändrades korrekt när innehållet ändrades, vilket det också gjorde. Andra testet var att kolla så att när en person avbryter order, vare sig det är halvvägs in eller avbryta helt, vilket resltatet blev att det ibland skickades ofullständiga ordrar till köket, vilket uppenbarade att koden hade mer behov av validering. 
 
+Det som gick bra var att debuggningen gav mig en bredare förståelse över hur dataflödet fungerar, samt även när API-anrop används vilket hjälpte mig att identifiera problem i orderhanteringen. Det var användbart med möjligheten att övervaka i realtid genom VS-code's watch panel då det gjorde det enklare för oss att identifiera problem och snabbt korrigera dem. 
 
+Det som gick mindre bra var att när en person avbröt ordern halvvägs in i beställningen så skickades ofullständiga ordrar till köket. Detta var något som behövdes kompletteras för att ordrana skulle hanteras korrekt. 
+
+Det som var enkelt var att sätta brytpunkter i koden som är en markering i koden som säger till debuggern att sluta exikvera mer återstående kod efter att den nått brytpunkten, detta ger möjlghet att till exempel inspektera programflöde eller variabler vid punkten. 
+
+Det som var särskilt svårt var att koppla ihop våran kod med varandra, men genom git så funkade det. Även när hemsidan skulle programmeras så blev den först inte responsiv då vi använde oss av, därefter hittade vi en annan lösning på problemmet; nämligen att använda oss av %. Validation av data var även ett svårt problem, dessutom att debugga databasanslutningen. 
+
+Debugging är användbart för mig eftersom att det tillåter mig identiefiera och lösa problem snabbt genom att använda brytpunkter. Det har även varit en lärdom för mig personligen då debugging även är ett sätt att lära sig om koden uppbyggnad, det utvecklar din analytiska och logiska förmåga att lösa problem på då man kan se kodens detaljer samt kodens helhet. 
 
 
 
