@@ -21,6 +21,14 @@ Responsiv design polerades ytterligare och vi testade webbplatsen på olika enhe
 
 Debug sessionens mål var att kolla att när en kund beställer och gör sin order så ska beställningen sparas i en databas, sedan även returnera med en bekräftelse på att en beställning har gjorts (som ett kvitto). Kontroller av front-end koden genomfördes och gruppmedlemmarna kollade så att HTML och CSS var kompatibel med JavaScript, gruppmedlemmarna länkade även programmeringsspråken genom att använda <style></style>. Därefter så granskades API-anropet genom Express.js.
 
+Vi satte även brytpunkter i kritiska funktioner som hanterar orderhantering och databasanslutningar där menucontroller.js skickar ordern till köket och även db.js vid koden som hanterar databasanslutningar för att validera så att anslutningen skickas till rätt person och är korrekt. 
+
+Vi fick gå in i SubmitOrder för att säkerställa och validera att orderhanteringen var korrekt för att sedan hoppa över enklare anrop från API för att låta programmet köras fram till nästa brytpunkt utan avbrott. Gruppmedlemmarna inspekterade även variabeln order i funktionen SubmitOrder genom att lägga till den i watch panelen i Vs-code och på så sätt kunde gruppmedlemmarna följa hur order uppdaterades i realtid när ordrarna skapades.
+
+För att säkerställa att allt var korrekt så gjorde vi några tester, första testet var att vi kollade så att order ändrades korrekt när innehållet ändrades, vilket det också gjorde. Andra testet var att kolla så att när en person avbryter order, vare sig det är halvvägs in eller avbryta helt, vilket resltatet blev att det ibland skickades ofullständiga ordrar till köket, vilket uppenbarade att koden hade mer behov av validering. 
+
+
+
 
 
 
