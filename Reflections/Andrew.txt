@@ -19,6 +19,8 @@ Testning och debugging fortsatte, med fokus på att genomföra att frontend och 
 
 Responsiv design polerades ytterligare och vi testade webbplatsen på olika enheter som mobiler, surfplattor och desktops. Slutligen höll gruppen en gemensam testning där alla medlemmar körde genom olika funktioner för att identifiera buggar och optimera prestanda. Målet var att ha en fullt fungerande version redo för presentation i slutet av deadline.
 
+Debug sessionens mål var att kolla att när en kund beställer och gör sin order så ska beställningen sparas i en databas, sedan även returnera med en bekräftelse på att en beställning har gjorts (som ett kvitto). Kontroller av front-end koden genomfördes och gruppmedlemmarna kollade så att HTML och CSS var kompatibel med JavaScript, gruppmedlemmarna länkade även programmeringsspråken genom att använda <style></style>. Därefter så granskades API-anropet genom Express.js.
+
 
 
 
